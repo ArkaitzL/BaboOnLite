@@ -1,10 +1,10 @@
 # Unity generated
-/"[Ll]ibrary"/
-/"[Tt]emp"/
-/"[Oo]bj"/
-/"[Bb]uild"/
-/"[Bb]uilds"/
-/Assets/AssetStoreTools*
+/LIB/[Ll]ibrary/
+/LIB/[Tt]emp/
+/LIB/[Oo]bj/
+/LIB/[Bb]uild/
+/LIB/[Bb]uilds/
+/LIB//Assets/AssetStoreTools*
 
 # Visual Studio / MonoDevelop generated
 /*.pidb
@@ -18,9 +18,9 @@
 /*.booproj
 
 # Gradle
-/gradle/
-/gradlew
-/gradlew.bat
+/LIB/gradle/
+/LIB/gradlew
+/LIB/gradlew.bat
 
 # Mac
 *.DS_Store
@@ -45,4 +45,4 @@
 sysinfo.txt
 
 # Ignore the Escenas folder inside Assets
-"/Assets/[]Escenas/"
+/LIB/Assets/[]Escenas/
