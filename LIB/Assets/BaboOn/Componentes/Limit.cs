@@ -19,13 +19,14 @@ public class Limit : MonoBehaviour
     [SerializeField] bool autoHeight;
     [SerializeField] bool autoInstance;
 
+    //Valida el uso de height junto a instance
     private void OnValidate()
     {
         if (autoInstance) {
             autoHeight = true;
         }
     }
-
+    //Posiciona los elementos a los bordes de la camara
     private void Start()
     {
         float camWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
@@ -49,7 +50,7 @@ public class Limit : MonoBehaviour
             Camera.main.transform.position.x + (camWidth / 2) + (manual.right.localScale.z / 2),
         0, 0);
     }
-
+    //Instancia dos BoxCollider2D
     Transform Instance(string name)
     {
         GameObject ob = new GameObject(name);
@@ -58,7 +59,7 @@ public class Limit : MonoBehaviour
 
         return ob.transform;
     }
-
+    //Adapta el tamaño a la altura de la camara
     void Height(Transform go)
     {
         float camHeight = Camera.main.orthographicSize * 2;

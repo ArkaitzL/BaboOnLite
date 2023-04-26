@@ -18,6 +18,7 @@ namespace baboOn
 
         public static SaveScript Data { get => data; }
 
+        //Convierte el script en Singleton
         private void Instance()
         {
             if (instance != null)
@@ -30,7 +31,7 @@ namespace baboOn
                 DontDestroyOnLoad(gameObject);
             }
         }
-
+        //Recoge los datos y lo guarda en data
         private void Awake()
         {
 
@@ -49,7 +50,7 @@ namespace baboOn
                 }
             }            
         }
-
+        //Al acabar el uso de la aplicacion  guarda los datos en el archivo
         private void OnApplicationQuit()
         {
             string Json = JsonUtility.ToJson(data);
@@ -62,7 +63,7 @@ namespace baboOn
                 Debug.LogFormat($"<color={color}> El archivo se a creado en:\n {path} </color>");
             }
         }
-
+        //Elimina el archivo
         [ContextMenu("Remove Data")]
         public void Remove()
         {
@@ -77,12 +78,12 @@ namespace baboOn
                 }
             }
         }
-
+        //Abre una nueva ventana con la GUI necesaria
         [ContextMenu("Change Name")]
         void OpenWindow() {
             ChangeNameWindow.ShowWindow();
         }
-
+        //Cambia el nombre al archivo
         public void ChangeName(string newName) {
 
 
@@ -103,7 +104,7 @@ namespace baboOn
 
         }
     }
-
+    //Crea el GUI de la ventana
     internal class ChangeNameWindow : EditorWindow
     {
         string newName;
