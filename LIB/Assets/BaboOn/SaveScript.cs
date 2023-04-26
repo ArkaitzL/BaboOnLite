@@ -1,4 +1,5 @@
-namespace onFunc {
+namespace baboOn
+{
     [System.Serializable]
     public class SaveScript
     {

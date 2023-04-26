@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-namespace onFunc {
+namespace baboOn
+{
 
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("OnFunc/Save")]
+    [AddComponentMenu("baboOn/Save")]
     public class Save : MonoBehaviour
     {
         [SerializeField] bool confirmLog = true;

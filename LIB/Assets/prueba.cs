@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-using onFunc;
+using baboOn;
 
 public class prueba : MonoBehaviour
 {
@@ -108,6 +108,6 @@ public class prueba : MonoBehaviour
     }
 
     void Data() {
-        //Save.Data.v1 = "I1";
+        //Save.Data;
     }
 }
