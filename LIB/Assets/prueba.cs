@@ -13,7 +13,7 @@ public class prueba : MonoBehaviour
 
         //Objetos();
         //String();
-        Data();
+        //Data();
     }
 
     void ArrayList1D() {

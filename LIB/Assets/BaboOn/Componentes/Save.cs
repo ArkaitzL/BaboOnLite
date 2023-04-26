@@ -10,7 +10,7 @@ namespace baboOn
     public class Save : MonoBehaviour
     {
         [SerializeField] bool confirmLog = true;
-        internal string nameJson = "data";
+        [SerializeField] [HideInInspector] internal string nameJson = "data";
         string color = "white";
 
         static SaveScript data = new SaveScript();
@@ -89,15 +89,18 @@ namespace baboOn
             string oldPath = Application.persistentDataPath + $"/{nameJson}.json";
             string newPath = Application.persistentDataPath + $"/{newName}.json";
 
-            nameJson = newName;
 
-            if (File.Exists(oldPath)){ 
+            if (File.Exists(oldPath)){
                 File.Move(oldPath, newPath);
+                nameJson = newName;
+
+                if (confirmLog)
+                {
+                    Debug.LogFormat($"<color={color}> Nombre del archivo cambiado a \"{newName}\". </color>");
+                }
             }
 
-            if (confirmLog) {
-                Debug.LogFormat($"<color={color}> Nombre del archivo cambiado correctamente. </color>");
-            }
+
         }
     }
 
