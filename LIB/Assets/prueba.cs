@@ -119,6 +119,9 @@ public class prueba : MonoBehaviour
     }
 
     void Unity() {
-        transform.Move2D(10,100);
+        //Debug.Log(transform.Move2D(10, 10));
+        //transform.MoveForward(10, 10);
+        //transform.MoveForward();
+        transform.Move2D();
     }
 }

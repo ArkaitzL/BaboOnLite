@@ -126,21 +126,55 @@ namespace baboOn
         }
     }
 
-    public static class Unity {
+    public static class Unity
+    {
         //Movimiento basico de unity2D
-        public static void Move2D(this Transform transform, float velocity, float rotation) {
-            Vector2 direction = new Vector2(
-                Input.GetAxis("Horizontal"), 
-                Input.GetAxis("Vertical")
-            );
+        public static bool Move2D(this Transform transform, float velocity = 10, float rotation = 10)
+        {
 
-            float angle = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            float x = Input.GetAxisRaw("Horizontal");
+            float y = Input.GetAxisRaw("Vertical");
 
+            if (x != 0f || y != 0f)
+            {
+                Vector3 direction = new Vector2(
+                    x,
+                    y
+                ).normalized;
+
+                transform.position += direction * (velocity/2) * Time.deltaTime;
+                float angle = Mathf.Atan2(
+                    direction.y,
+                    direction.x
+                ) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Lerp(
+                    transform.rotation,
+                    Quaternion.Euler(0f, 0f, angle - 90f),
+                    rotation * Time.deltaTime
+                );
+
+                return true;
+            }
+
+            return false;
+
+        }
+        //Moviemiento para adelante
+        public static void MoveForward(this Transform transform, float velocity = 10, float rotation = 10)
+        {
             transform.Translate(
-                direction.normalized * Time.deltaTime * velocity,
-                Space.World
+                Vector3.up * (velocity / 5) * Time.deltaTime,
+                Space.Self
             );
+
+            float x = Input.GetAxisRaw("Horizontal");
+
+            if (x != 0f)
+            {
+                float angleV = x * rotation * Time.deltaTime;
+                transform.Rotate(0f, 0f, -(angleV*15));
+            }
+
         }
     }
 
