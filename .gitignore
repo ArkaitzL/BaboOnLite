@@ -45,8 +45,8 @@
 sysinfo.txt
 
 # Ignore the Escenas folder inside Assets
-/LIB/Assets/[]Escenas/
-
+/LIB/Assets/Escenas/
+/LIB/Assets/Escenas.meta
 
 /LIB/Packages
 /LIB/ProjectSettings
