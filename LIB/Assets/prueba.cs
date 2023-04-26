@@ -16,6 +16,11 @@ public class prueba : MonoBehaviour
         //Data();
     }
 
+    private void Update()
+    {
+        Unity();
+    }
+
     void ArrayList1D() {
         int[] numerosA = { 1, 2, 3, 4, 5, 0, -1, -2, 6 };
         List<int> numerosL = new List<int>() { 1, 2, 3, 4, 5, 0, -1, -2 };
@@ -103,11 +108,17 @@ public class prueba : MonoBehaviour
 
     void String() {
         // Log();
-        "Este es mi mensaje".Log();
-        string miMens = "Este es mi mensaje".Log();
+        //"Este es mi mensaje".Log();
+        //string miMens = "Este es mi mensaje".Log();
+        //Bug.Log(Color.red);
+        //Bug.Log();
     }
 
     void Data() {
         //Save.Data;
+    }
+
+    void Unity() {
+        transform.Move2D(10,100);
     }
 }

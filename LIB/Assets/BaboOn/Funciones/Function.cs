@@ -110,11 +110,37 @@ namespace baboOn
     
     }
 
-    public static class String {
+    public static class Bug {
         //Muestra un log del string y lo devuelve
         public static string Log(this string text) {
             Debug.Log(text);
             return text;
+        }
+        //Muestra un log con informacion basica
+        public static void Log(Color color = default)
+        {
+            string message = "<b>**-------**</b>";
+            string colorHex = ColorUtility.ToHtmlStringRGBA((color == default) ? Color.white : color);
+
+            Debug.LogFormat("<color=#{0}>{1}</color>", colorHex, message);
+        }
+    }
+
+    public static class Unity {
+        //Movimiento basico de unity2D
+        public static void Move2D(this Transform transform, float velocity, float rotation) {
+            Vector2 direction = new Vector2(
+                Input.GetAxis("Horizontal"), 
+                Input.GetAxis("Vertical")
+            );
+
+            float angle = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+            transform.Translate(
+                direction.normalized * Time.deltaTime * velocity,
+                Space.World
+            );
         }
     }
 
