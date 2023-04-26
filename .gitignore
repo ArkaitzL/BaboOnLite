@@ -46,3 +46,11 @@ sysinfo.txt
 
 # Ignore the Escenas folder inside Assets
 /LIB/Assets/[]Escenas/
+
+
+/LIB/Packages
+/LIB/ProjectSettings
+/LIB/UserSettings
+/LIB/.vsconfig
+/LIB/Assembly-CSharp.csproj
+/LIB/LIB.sln
