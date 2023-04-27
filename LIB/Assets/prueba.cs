@@ -8,7 +8,7 @@ public class prueba : MonoBehaviour
 {
     void Start()
     {
-        //ArrayList1D();
+        ArrayList1D();
         //ArrayList2D();
 
         //Objetos();
@@ -26,8 +26,8 @@ public class prueba : MonoBehaviour
         List<int> numerosL = new List<int>() { 1, 2, 3, 4, 5, 0, -1, -2 };
 
         // String---------------------------------
-        //Debug.Log(numerosA.String());
-        //Debug.Log(numerosL.String());
+        //Debug.Log(numerosA.inString());
+        //Debug.Log(numerosL.inString());
 
         // ForEach--------------------------------
 
@@ -71,6 +71,14 @@ public class prueba : MonoBehaviour
         //int[] nuevoArrayA = numerosA.Order();
         //int[] nuevoArrayA = numerosA.Order((n1, n2) => n1.CompareTo(n2));
         //Debug.Log(nuevoArrayA.String());
+
+        // inArray y inList---------------------------
+        //"[1,2,3,4,5]"
+        //"[hola, adios]"
+        //"[false, true, 1, 23]".inArray<bool>().ForEach(e => {
+        //    Debug.Log(e);
+        //});
+
 
     }
 
@@ -122,6 +130,6 @@ public class prueba : MonoBehaviour
         //Debug.Log(transform.Move2D(10, 10));
         //transform.MoveForward(10, 10);
         //transform.MoveForward();
-        transform.Move2D();
+        //transform.Move2D();
     }
 }

@@ -13,8 +13,33 @@ namespace baboOn
 
     public static class Array1D
     {
+        //Convierte el texto en array
+        private static IEnumerable<T> _Array<T>(string text)
+        {
+            int start = text.IndexOf("[");
+            int end = text.IndexOf("]");
+            string subText = text.Substring(start + 1, end - start - 1);
+
+            List<T> array = new List<T>();
+            foreach (string s in subText.Split(','))
+            {
+                try
+                {
+                    T item = (T)Convert.ChangeType(s.Trim(), typeof(T));
+                    array.Add(item);
+                }
+                catch (FormatException)
+                {
+                    Debug.LogWarning($"'{s.Trim()}' no es del tipo {typeof(T).Name}");
+                }
+            }
+
+            return array;
+        }
+        public static T[] inArray<T>(this string text) => _Array<T>(text).ToArray();
+        public static List<T> inList<T>(this string text) => _Array<T>(text).ToList();
         //Convierte de array a texto
-        public static string String<T>(this IEnumerable<T> array)
+        public static string inString<T>(this IEnumerable<T> array)
         {
             string text = "[";
             for (int i = 0; i < array.Count(); i++)

@@ -19,6 +19,11 @@ public class Limit : MonoBehaviour
     [SerializeField] bool autoHeight;
     [SerializeField] bool autoInstance;
 
+    [Space]
+
+    [SerializeField] bool confirmLog = true;
+    string color = "white";
+
     //Valida el uso de height junto a instance
     private void OnValidate()
     {
@@ -49,6 +54,10 @@ public class Limit : MonoBehaviour
         manual.right.position = new Vector3(
             Camera.main.transform.position.x + (camWidth / 2) + (manual.right.localScale.z / 2),
         0, 0);
+
+        if (confirmLog) {
+            Debug.LogFormat($"<color={color}> Se han establecido los limites. </color>");
+        }
     }
     //Instancia dos BoxCollider2D
     Transform Instance(string name)

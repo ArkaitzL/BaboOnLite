@@ -9,8 +9,9 @@ namespace baboOn
     [AddComponentMenu("baboOn/Save")]
     public class Save : MonoBehaviour
     {
-        [SerializeField] bool confirmLog = true;
         [SerializeField] [HideInInspector] internal string nameJson = "data";
+
+        [SerializeField] bool confirmLog = true;
         string color = "white";
 
         static SaveScript data = new SaveScript();
@@ -19,7 +20,7 @@ namespace baboOn
         public static SaveScript Data { get => data; }
 
         //Convierte el script en Singleton
-        private void Instance()
+        void Instance()
         {
             if (instance != null)
             {
