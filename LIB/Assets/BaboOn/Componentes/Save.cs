@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEditor;
 using System.IO;
+using UnityEditor;
 
 namespace baboOn
 {
@@ -9,7 +9,7 @@ namespace baboOn
     [AddComponentMenu("baboOn/Save")]
     public class Save : MonoBehaviour
     {
-        [SerializeField] [HideInInspector] internal string nameJson = "data";
+        [SerializeField] [HideInInspector] public string nameJson = "data";
 
         [SerializeField] bool confirmLog = true;
         string color = "white";
@@ -65,7 +65,6 @@ namespace baboOn
             }
         }
         //Elimina el archivo
-        [ContextMenu("Remove Data")]
         public void Remove()
         {
             string path = Application.persistentDataPath + $"/{nameJson}.json";
@@ -78,11 +77,6 @@ namespace baboOn
                     Debug.LogFormat($"<color={color}> Archivo eliminado correctamente. </color>");
                 }
             }
-        }
-        //Abre una nueva ventana con la GUI necesaria
-        [ContextMenu("Change Name")]
-        void OpenWindow() {
-            ChangeNameWindow.ShowWindow();
         }
         //Cambia el nombre al archivo
         public void ChangeName(string newName) {
@@ -104,9 +98,16 @@ namespace baboOn
 
 
         }
+        //Abre una nueva ventana con la GUI necesaria
+        public void OpenWindow()
+        {
+           
+            ChangeNameWindow.ShowWindow();
+        }
     }
-    //Crea el GUI de la ventana
-    internal class ChangeNameWindow : EditorWindow
+
+    //Ventana de Save
+    public class ChangeNameWindow : EditorWindow
     {
         string newName;
 

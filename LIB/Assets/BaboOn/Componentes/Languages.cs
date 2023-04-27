@@ -3,7 +3,7 @@ using TMPro;
 using baboOn;
 
 namespace baboon {
-
+    [DefaultExecutionOrder(0)]
     [AddComponentMenu("baboOn/Languages")]
     public class Languages : MonoBehaviour
     {

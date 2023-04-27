@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 namespace baboOn 
@@ -18,27 +17,6 @@ namespace baboOn
         {
             texts = GUIUtility.systemCopyBuffer.inArray<string>();
             Debug.Log("Idioma pegado");
-        }
-    }
-
-    [CustomEditor(typeof(Language))]
-    public class PlayerPrefabEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-
-            Language lang = (Language)target;
-
-            if (GUILayout.Button("Copy"))
-            {
-                lang.Copy();
-            }
-
-            if (GUILayout.Button("Paste"))
-            {
-                lang.Paste();
-            }
         }
     }
 }

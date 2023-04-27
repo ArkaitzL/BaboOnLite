@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[DefaultExecutionOrder(0)]
 [AddComponentMenu("baboOn/Limit")]
 public class Limit : MonoBehaviour
 {
