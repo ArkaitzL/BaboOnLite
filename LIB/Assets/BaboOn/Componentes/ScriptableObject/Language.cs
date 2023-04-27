@@ -5,17 +5,18 @@ namespace baboOn
     [CreateAssetMenu(fileName = "Language", menuName = "baboOn/New language", order = 1)]
     public class Language : ScriptableObject
     {
-        [SerializeField] public string[] texts = new string[0];
-
+        //Almacena las palabras del idioma
+        [SerializeField] public string[] dictionary = new string[0];
+        //Copia el diccionario
         public void Copy()
         {
-            GUIUtility.systemCopyBuffer = texts.inString();
+            GUIUtility.systemCopyBuffer = dictionary.inString();
             Debug.Log("Idioma copiado en el portapaeles");
         }
-
+        //Crea un nuevo diccionario como el que le pasas
         public void Paste()
         {
-            texts = GUIUtility.systemCopyBuffer.inArray<string>();
+            dictionary = GUIUtility.systemCopyBuffer.inArray<string>();
             Debug.Log("Idioma pegado");
         }
     }
