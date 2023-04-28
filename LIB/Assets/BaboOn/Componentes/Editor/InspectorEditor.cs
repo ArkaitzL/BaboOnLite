@@ -13,6 +13,8 @@ namespace BaboOn
 
             Save ins = (Save)target;
 
+            GUILayout.Space(10);
+
             if (GUILayout.Button("Remove Data"))
             {
                 ins.Remove();
@@ -33,6 +35,8 @@ namespace BaboOn
             base.OnInspectorGUI();
 
             Language lang = (Language)target;
+
+            GUILayout.Space(10);
 
             if (GUILayout.Button("Copy"))
             {

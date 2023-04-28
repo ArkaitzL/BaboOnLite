@@ -6,9 +6,12 @@ using BaboOn;
 
 public class prueba : MonoBehaviour
 {
+    [SerializeField] Dictionary<string, int> Diccionario = new Dictionary<string, int>();
+    [SerializeField] string[,] Array2d = new string[0,0];
+
     void Start()
     {
-        ArrayList1D();
+        //ArrayList1D();
         //ArrayList2D();
 
         //Objetos();
@@ -18,7 +21,7 @@ public class prueba : MonoBehaviour
 
     private void Update()
     {
-        Unity();
+        //Unity();
     }
 
     void ArrayList1D() {

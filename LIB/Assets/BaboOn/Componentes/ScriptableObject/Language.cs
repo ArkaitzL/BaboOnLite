@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace BaboOn
 {
-    [CreateAssetMenu(fileName = "Language", menuName = "baboOn/New language", order = 1)]
+    [CreateAssetMenu(fileName = "Language", menuName = "BaboOn/New language", order = 1)]
     public class Language : ScriptableObject
     {
         //Almacena las palabras del idioma
