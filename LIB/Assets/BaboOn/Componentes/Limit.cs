@@ -2,6 +2,8 @@ using UnityEngine;
 
 [DefaultExecutionOrder(0)]
 [AddComponentMenu("baboOn/Limit")]
+[DisallowMultipleComponent]
+//[HelpURL("")]
 public class Limit : MonoBehaviour
 {
 
@@ -20,10 +22,7 @@ public class Limit : MonoBehaviour
     [SerializeField] bool autoHeight;
     [SerializeField] bool autoInstance;
 
-    [Space]
-
-    [SerializeField] bool confirmLog = true;
-    string color = "white";
+    static Limit instance;
 
     //Valida el uso de height junto a instance
     private void OnValidate()
@@ -32,13 +31,32 @@ public class Limit : MonoBehaviour
             autoHeight = true;
         }
     }
-    //Posiciona los elementos a los bordes de la camara
-    private void Start()
+    //Instancia una referencia al script
+    void Instance()
     {
+        if (instance == null)
+        {
+            instance = this;
+            return;
+        }
+
+        Debug.LogError($"baboOn: 1.1.-Existen varias instancias de languages, se ha destruido la instancia de \"{gameObject.name}\"");
+        Destroy(this);
+    }
+    //Posiciona los elementos a los bordes de la camara
+    private void Awake()
+    {
+        Instance();
+        Validate();
+
         float camWidth = Camera.main.orthographicSize * 2 * Camera.main.aspect;
 
         if (autoInstance)
         {
+            if (manual.right != null || manual.left != null)
+            {
+                Debug.LogError("baboOn: 1.3.-Se han cambiado los limites establecidos manualmente");
+            }
             manual.left = Instance("left");
             manual.right = Instance("right");
         }
@@ -55,9 +73,13 @@ public class Limit : MonoBehaviour
         manual.right.position = new Vector3(
             Camera.main.transform.position.x + (camWidth / 2) + (manual.right.localScale.z / 2),
         0, 0);
-
-        if (confirmLog) {
-            Debug.LogFormat($"<color={color}> Se han establecido los limites. </color>");
+    }
+    //Valida que no tenga errores
+    void Validate() {
+        if (!autoInstance) {
+            if (manual.right == null || manual.left == null) {
+                Debug.LogError("baboOn: 1.2.-No tienes asignado ningun limite");
+            }
         }
     }
     //Instancia dos BoxCollider2D

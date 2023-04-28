@@ -7,11 +7,13 @@ namespace baboOn
 
     [DefaultExecutionOrder(0)]
     [AddComponentMenu("baboOn/Save")]
+    [DisallowMultipleComponent]
+    //[HelpURL("")]
     public class Save : MonoBehaviour
     {
         [SerializeField] [HideInInspector] public string nameJson = "data";
 
-        [SerializeField] bool confirmLog = true;
+        [SerializeField] bool confirmLog = false;
         string color = "white";
 
         static SaveScript data = new SaveScript();
@@ -25,12 +27,11 @@ namespace baboOn
             if (instance != null)
             {
                 Destroy(gameObject);
+                return;
             }
-            else
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
+
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         //Recoge los datos y lo guarda en data
         private void Awake()
@@ -49,7 +50,9 @@ namespace baboOn
                 {
                     Debug.LogFormat($"<color={color}> Datos cargados correctamente. </color>");
                 }
-            }            
+                return;
+            }
+            Debug.LogWarning("baboOn: 2.3.-El archivo no ha sido cargado");
         }
         //Al acabar el uso de la aplicacion  guarda los datos en el archivo
         private void OnApplicationQuit()
@@ -62,6 +65,10 @@ namespace baboOn
             if (confirmLog)
             {
                 Debug.LogFormat($"<color={color}> El archivo se a creado en:\n {path} </color>");
+            }
+
+            if (File.Exists(path)) {
+                Debug.LogError("baboOn: 2.2.-El archivo no se ha creado correctamente");
             }
         }
         //Elimina el archivo
@@ -76,7 +83,9 @@ namespace baboOn
                 {
                     Debug.LogFormat($"<color={color}> Archivo eliminado correctamente. </color>");
                 }
+                return;
             }
+            Debug.LogError("baboOn: 2.1.-No existe ningun archivo que se pueda eliminar");
         }
         //Cambia el nombre al archivo
         public void ChangeName(string newName) {
@@ -95,8 +104,6 @@ namespace baboOn
                     Debug.LogFormat($"<color={color}> Nombre del archivo cambiado a \"{newName}\". </color>");
                 }
             }
-
-
         }
         //Abre una nueva ventana con la GUI necesaria
         public void OpenWindow()
