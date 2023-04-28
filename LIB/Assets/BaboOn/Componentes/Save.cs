@@ -52,6 +52,7 @@ namespace baboOn
                 }
                 return;
             }
+            //No se ha encontrado un archivo del cual cargar datos
             Debug.LogWarning("baboOn: 2.3.-El archivo no ha sido cargado");
         }
         //Al acabar el uso de la aplicacion  guarda los datos en el archivo
@@ -68,6 +69,7 @@ namespace baboOn
             }
 
             if (File.Exists(path)) {
+                //No se ha podido crear un archivo, por lo que no se han guardado los datos
                 Debug.LogError("baboOn: 2.2.-El archivo no se ha creado correctamente");
             }
         }
@@ -85,6 +87,7 @@ namespace baboOn
                 }
                 return;
             }
+            //No se ha eliminado el archivo ya que no existe
             Debug.LogError("baboOn: 2.1.-No existe ningun archivo que se pueda eliminar");
         }
         //Cambia el nombre al archivo

@@ -40,6 +40,7 @@ public class Limit : MonoBehaviour
             return;
         }
 
+        //No se puede poner dos scripts de este tipo en la misma escena
         Debug.LogError($"baboOn: 1.1.-Existen varias instancias de languages, se ha destruido la instancia de \"{gameObject.name}\"");
         Destroy(this);
     }
@@ -55,7 +56,8 @@ public class Limit : MonoBehaviour
         {
             if (manual.right != null || manual.left != null)
             {
-                Debug.LogError("baboOn: 1.3.-Se han cambiado los limites establecidos manualmente");
+                //Se han cambiado los limites manuales por los limites automaticos
+                Debug.LogWarning("baboOn: 1.3.-Se han cambiado los limites establecidos manualmente");
             }
             manual.left = Instance("left");
             manual.right = Instance("right");
@@ -78,6 +80,7 @@ public class Limit : MonoBehaviour
     void Validate() {
         if (!autoInstance) {
             if (manual.right == null || manual.left == null) {
+                //No estan ni los limites automatico, ni los manuales
                 Debug.LogError("baboOn: 1.2.-No tienes asignado ningun limite");
             }
         }
