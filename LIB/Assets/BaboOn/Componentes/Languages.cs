@@ -41,6 +41,7 @@ namespace baboon
                 return;
             }
 
+            //No se puede poner dos scripts de este tipo en la misma escena
             Debug.LogError($"baboOn: 3.1-Existen varias instancias de languages, se ha destruido la instancia de \"{gameObject.name}\"");
             Destroy(this);
         }
@@ -56,7 +57,12 @@ namespace baboon
             int length = texts.Length;
 
             languages.ForEach(e => {
+                if (e == null) {
+                    //No puedes dejar en null un elemento del array Language
+                    Debug.LogError($"baboOn: 3.4- No puedes dejar un campo de Idioma sin asignar");
+                }
                 if (e.dictionary.Length != length) {
+                    //La longitud de los diccionarios tienen que ser iguales al de los textos
                     Debug.LogError($"baboOn: 3.2-La longitud del diccionario de {e.name}, no coincide con la cantidad de textos");
                 }
             });
@@ -66,7 +72,8 @@ namespace baboon
             texts.ForEach((e, i) =>
             {
                 if (e == null) {
-                    Debug.LogError($"baboOn: 3.3- No puedes dejar un campo texto sin asignar");
+                    //No puedes dejar en null un elemento del array Text
+                    Debug.LogError($"baboOn: 3.3- No puedes dejar un campo de Texto sin asignar");
                     return;
                 }
                 e.text = languages[miLang].dictionary[i];
