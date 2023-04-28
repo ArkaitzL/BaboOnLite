@@ -2,13 +2,14 @@ using UnityEngine;
 using System.IO;
 using UnityEditor;
 
-namespace baboOn
+namespace BaboOn
 {
 
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("baboOn/Save")]
+    [AddComponentMenu("BaboOn/Save")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
+
     public class Save : MonoBehaviour
     {
         [SerializeField] [HideInInspector] public string nameJson = "data";

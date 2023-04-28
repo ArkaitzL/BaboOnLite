@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace baboOn
+namespace BaboOn
 {
     [System.Serializable]
     public class SaveScript

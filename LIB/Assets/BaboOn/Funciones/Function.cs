@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace baboOn
+namespace BaboOn
 {
 
     internal static class Otros 

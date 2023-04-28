@@ -1,7 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace baboOn {
+namespace BaboOn
+{
     //Editor de save
     [CustomEditor(typeof(Save))]
     public class SaveEditor : Editor

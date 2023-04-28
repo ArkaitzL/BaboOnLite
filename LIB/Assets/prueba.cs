@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-using baboOn;
+using BaboOn;
 
 public class prueba : MonoBehaviour
 {

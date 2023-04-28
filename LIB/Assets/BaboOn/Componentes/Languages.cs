@@ -1,13 +1,13 @@
 using UnityEngine;
 using TMPro;
-using baboOn;
 
-namespace baboon 
+namespace BaboOn
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("baboOn/Languages")]
+    [AddComponentMenu("BaboOn/Languages")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
+
     public class Languages : MonoBehaviour
     {
         //Almacena los idiomas, los Textos(TMPro), el num del idioma y la instancia

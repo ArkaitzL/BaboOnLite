@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace baboOn 
+namespace BaboOn
 {
     [CreateAssetMenu(fileName = "Language", menuName = "baboOn/New language", order = 1)]
     public class Language : ScriptableObject
