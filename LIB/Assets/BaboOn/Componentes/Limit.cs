@@ -16,13 +16,9 @@ namespace BaboOn
         {
             [SerializeField] internal Transform left, right;
         }
-
         [Space]
-
         [SerializeField] Manual manual;
-
         [Space]
-
         [SerializeField] bool autoHeight;
         [SerializeField] bool autoInstance;
 

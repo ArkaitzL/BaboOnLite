@@ -8,7 +8,6 @@ public class prueba : MonoBehaviour
 {
     [SerializeField] Dictionary<string, int> Diccionario = new Dictionary<string, int>();
     [SerializeField] string[,] Array2d = new string[0,0];
-    [SerializeField] LanguagesVariable idioma;
 
     void Start()
     {
@@ -139,7 +138,5 @@ public class prueba : MonoBehaviour
     }
 
     void LanguageVoid() {
-        idioma.AssignedText(0,1);
-        idioma.AssignedText(1, 1);
     }
 }
