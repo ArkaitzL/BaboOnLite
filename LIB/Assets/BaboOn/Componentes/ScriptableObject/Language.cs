@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace BaboOn
@@ -16,8 +17,15 @@ namespace BaboOn
         //Crea un nuevo diccionario como el que le pasas
         public void Paste()
         {
+            dictionary = dictionary.Concat(
+                GUIUtility.systemCopyBuffer.inArray<string>()
+             ).ToArray();
+        }
+
+        //Añadir datos al diccionario con el que le pasas
+        public void PasteAsNew()
+        {
             dictionary = GUIUtility.systemCopyBuffer.inArray<string>();
-            Debug.Log("Idioma pegado");
         }
     }
 }

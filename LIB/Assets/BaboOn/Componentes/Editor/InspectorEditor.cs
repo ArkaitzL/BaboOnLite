@@ -47,6 +47,11 @@ namespace BaboOn
             {
                 lang.Paste();
             }
+
+            if (GUILayout.Button("Paste as new"))
+            {
+                lang.PasteAsNew();
+            }
         }
     }
 }
