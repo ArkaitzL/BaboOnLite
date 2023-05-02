@@ -17,7 +17,7 @@ public class prueba : MonoBehaviour
         //Objetos();
         //String();
         //Data();
-        LanguageVoid();
+        //LanguageVoid();
     }
 
     private void Update()
@@ -132,11 +132,17 @@ public class prueba : MonoBehaviour
 
     void Unity() {
         //Debug.Log(transform.Move2D(10, 10));
-        //transform.MoveForward(10, 10);
-        //transform.MoveForward();
         //transform.Move2D();
+        //transform.MoveForward2D(10, 10);
+        //transform.MoveForward2D();
+
+        //Debug.Log(transform.Move3D_3P(10, 10));
+        //transform.Move3D_3P();
+        //transform.MoveForward3D(10, 10);
+        //transform.MoveForward3D();
     }
 
     void LanguageVoid() {
+
     }
 }

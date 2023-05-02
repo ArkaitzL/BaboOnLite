@@ -151,10 +151,10 @@ namespace BaboOn
         }
     }
 
-    public static class Unity
+    public static class Move2D
     {
-        //Movimiento basico de unity2D
-        public static bool Move2D(this Transform transform, float velocity = 10, float rotation = 10)
+        //Movimiento basico de unity2D en 3 persona
+        public static bool Move2D_3P(this Transform transform, float velocity = 10, float rotation = 10)
         {
 
             float x = Input.GetAxisRaw("Horizontal");
@@ -185,7 +185,7 @@ namespace BaboOn
 
         }
         //Moviemiento para adelante
-        public static void MoveForward(this Transform transform, float velocity = 10, float rotation = 10)
+        public static void MoveForward2D(this Transform transform, float velocity = 10, float rotation = 10)
         {
             transform.Translate(
                 Vector3.up * (velocity / 5) * Time.deltaTime,
@@ -198,6 +198,51 @@ namespace BaboOn
             {
                 float angleV = x * rotation * Time.deltaTime;
                 transform.Rotate(0f, 0f, -(angleV*15));
+            }
+
+        }
+    }
+
+    public static class Move3D
+    {
+        //Movimiento basico de unity2D en 3 persona
+        public static bool Move3D_3P(this Transform transform, float velocity = 10, float rotation = 10)
+        {
+
+            float x = Input.GetAxisRaw("Horizontal");
+            float z = Input.GetAxisRaw("Vertical");
+
+            if (new Vector3(x, 0, z) != Vector3.zero)
+            {
+                //Rotar el personaje
+                transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    Quaternion.LookRotation(new Vector3(x, 0, z).normalized),
+                    rotation * Time.deltaTime
+                );
+                //Mover el personaje
+                transform.Translate(
+                    new Vector3(x, 0, z).normalized * Time.deltaTime * velocity,
+                    Space.World
+                );
+                return true;
+            }
+            return false;
+        }
+        //Moviemiento para adelante
+        public static void MoveForward3D(this Transform transform, float velocity = 10, float rotation = 10)
+        {
+            transform.Translate(
+                Vector3.forward * (velocity/2) * Time.deltaTime,
+                Space.Self
+            );
+
+            float x = Input.GetAxisRaw("Horizontal");
+
+            if (x != 0f)
+            {
+                float angleV = x * rotation * Time.deltaTime;
+                transform.Rotate(0f, -(angleV * 15), 0f);
             }
 
         }
