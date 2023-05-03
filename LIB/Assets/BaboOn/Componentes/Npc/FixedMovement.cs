@@ -47,19 +47,20 @@ namespace BaboOn
                         direction.y,
                         direction.x
                     ) * Mathf.Rad2Deg;
-                    transform.rotation = Quaternion.Lerp(
+                    transform.rotation = Quaternion.Slerp(
                         transform.rotation,
                         Quaternion.Euler(0f, 0f, angle - 90f),
                         rotateSpeed * Time.deltaTime
                     );
 
                     yield return null;
-                } while (Quaternion.Angle(transform.rotation, Quaternion.Euler(0f, 0f, angle - 90f)) > 0.01f);
+                } while (Quaternion.Angle(transform.rotation, Quaternion.Euler(0f, 0f, angle - 90f)) > 0.02f);
+                transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
             }
             else
             {
                 //Rota a la direccion a donde se va a mover 3D
-                while (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) > 0.01f)
+                while (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) > 0.02f)
                 {
                     transform.rotation = Quaternion.Slerp(
                         transform.rotation,
@@ -68,7 +69,8 @@ namespace BaboOn
                     );
                     yield return null;
                 }
-                
+                transform.rotation = Quaternion.LookRotation(direction);
+
             }
 
             //Se mueva a su proxima posicion
@@ -81,7 +83,10 @@ namespace BaboOn
 
             //Reinicia el proceso
             if (goBack) {
-                if (i == path.positions.Length) back = true;
+                if (i == path.positions.Length) {
+                    back = true;
+                    i--;
+                }
                 if (i == 0) { 
                     back = false;
                     i = 1;
@@ -96,7 +101,7 @@ namespace BaboOn
         [ContextMenu("Cancel Movement")]
         public void CancelMovement()
         {
-            i = (goBack) ? -1 : +1;
+            if (back) i++;
             StopAllCoroutines();
         }
 

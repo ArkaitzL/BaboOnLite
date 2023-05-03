@@ -172,7 +172,7 @@ namespace BaboOn
                     direction.y,
                     direction.x
                 ) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Lerp(
+                transform.rotation = Quaternion.Slerp(
                     transform.rotation,
                     Quaternion.Euler(0f, 0f, angle - 90f),
                     rotation * Time.deltaTime

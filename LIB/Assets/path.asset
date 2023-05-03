@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: path
   m_EditorClassIdentifier: 
   positions:
-  - {x: 0, y: 0, z: 20}
-  - {x: 5.36, y: 0, z: 20}
-  - {x: 5.36, y: 5, z: 20}
+  - {x: 0, y: 5.18, z: 4.37}
+  - {x: 0, y: 5.18, z: 9.79}
+  - {x: 7.07, y: 5.18, z: 9.79}
