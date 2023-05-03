@@ -36,15 +36,39 @@ namespace BaboOn
                 : path.positions[i++];
             Vector3 direction = (currentPos - transform.position).normalized;
 
-            //Rota a la direccion a donde se va a mover
-            while (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) > 0.01f)
+
+            if (move2D)
             {
-                transform.rotation = Quaternion.Slerp(
-                    transform.rotation,
-                    Quaternion.LookRotation(direction),
-                    rotateSpeed * Time.deltaTime
-                );
-                yield return null;
+                //Rota a la direccion a donde se va a mover 2D
+                float angle;
+                do
+                {
+                    angle = Mathf.Atan2(
+                        direction.y,
+                        direction.x
+                    ) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Lerp(
+                        transform.rotation,
+                        Quaternion.Euler(0f, 0f, angle - 90f),
+                        rotateSpeed * Time.deltaTime
+                    );
+
+                    yield return null;
+                } while (Quaternion.Angle(transform.rotation, Quaternion.Euler(0f, 0f, angle - 90f)) > 0.01f);
+            }
+            else
+            {
+                //Rota a la direccion a donde se va a mover 3D
+                while (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) > 0.01f)
+                {
+                    transform.rotation = Quaternion.Slerp(
+                        transform.rotation,
+                        Quaternion.LookRotation(direction),
+                        rotateSpeed * Time.deltaTime
+                    );
+                    yield return null;
+                }
+                
             }
 
             //Se mueva a su proxima posicion
