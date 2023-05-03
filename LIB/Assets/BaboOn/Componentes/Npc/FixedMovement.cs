@@ -31,10 +31,10 @@ namespace BaboOn
             yield return new WaitForSeconds(waitTime);
 
             //Calcula la direccion a la que se va a mover
-            Vector3 currentPos = (back) 
+            Vector3 targetPos = (back) 
                 ? path.positions[--i]
                 : path.positions[i++];
-            Vector3 direction = (currentPos - transform.position).normalized;
+            Vector3 direction = (targetPos - transform.position).normalized;
 
 
             if (move2D)
@@ -72,12 +72,12 @@ namespace BaboOn
             }
 
             //Se mueva a su proxima posicion
-            while (Vector3.Distance(currentPos, transform.position) > 0.1f)
+            while (Vector3.Distance(targetPos, transform.position) > 0.1f)
             {
                 transform.Translate(direction * speed * Time.deltaTime, Space.World);
                 yield return null;
             }
-            transform.position = currentPos;
+            transform.position = targetPos;
 
             //Reinicia el proceso
             if (goBack) {
@@ -96,7 +96,7 @@ namespace BaboOn
         [ContextMenu("Cancel Movement")]
         public void CancelMovement()
         {
-            i--;
+            i = (goBack) ? -1 : +1;
             StopAllCoroutines();
         }
 
