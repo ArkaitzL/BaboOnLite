@@ -4,7 +4,7 @@ using UnityEngine;
 namespace BaboOn
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOn/Limit")]
+    [AddComponentMenu("BaboOn/Limit (2D)")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
 

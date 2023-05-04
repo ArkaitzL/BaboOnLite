@@ -5,7 +5,7 @@ using UnityEngine;
 namespace BaboOn
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOn/Npc/PathMaker(NPC)")]
+    [AddComponentMenu("BaboOn/Npc/PathMaker (NPC)")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
     public class PathMaker : MonoBehaviour

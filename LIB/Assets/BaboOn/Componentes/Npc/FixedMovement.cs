@@ -4,7 +4,7 @@ using UnityEngine;
 namespace BaboOn
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOn/Npc/FixedMovement(NPC)")]
+    [AddComponentMenu("BaboOn/Npc/FixedMovement (NPC)")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
     public class FixedMovement : MonoBehaviour
@@ -21,6 +21,13 @@ namespace BaboOn
 
         private void Start()
         {
+            //Validar que tenga una ruta
+            if (path == null)
+            {
+                Debug.LogError($"baboOn: 4.1.-No hay una ruta establecida");
+                return;
+            }
+
             //Se pone en la posicion inicial
             transform.position = path.positions[i++];
             StartCoroutine(Move());
