@@ -125,7 +125,12 @@ namespace BaboOn
         }
         public static T[] Order<T>(this T[] array, Comparison<T> func) => _Sort(array, func).ToArray();
         public static List<T> Order<T>(this List<T> array, Comparison<T> func) => _Sort(array, func).ToList();
-
+        public static bool Inside<T>(this IEnumerable<T> array, int value) {
+            if (value >= 0 && value < array.Count()) {
+                return true;
+            }
+            return false;
+        }
 
 
     }

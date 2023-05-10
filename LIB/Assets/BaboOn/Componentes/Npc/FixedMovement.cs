@@ -4,7 +4,7 @@ using UnityEngine;
 namespace BaboOn
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOn/Npc/FixedMovement (NPC)")]
+    [AddComponentMenu("BaboOn/ Npc/FixedMovement (NPC)")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
     public class FixedMovement : MonoBehaviour
