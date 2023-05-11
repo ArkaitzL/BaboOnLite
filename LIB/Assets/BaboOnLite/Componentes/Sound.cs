@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BaboOn 
 {
-    [DefaultExecutionOrder(0)]
+    [DefaultExecutionOrder(-1)]
     [AddComponentMenu("BaboOn/Sound")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
@@ -12,10 +12,11 @@ namespace BaboOn
     public class Sound : MonoBehaviour
     {
         [SerializeField] AudioClip[] sounds;
+        Transform parent;
+        bool vibration;
 
         static Sound instance;
-        public static Sound sound { get => instance; set => instance = value; }
-
+        public static Sound Create { get => instance; set => instance = value; }
         void Instance()
         {
             if (instance == null)
@@ -28,73 +29,86 @@ namespace BaboOn
             Debug.LogError($"baboOn: 5.1.-Existen varias instancias de languages, se ha destruido la instancia de \"{gameObject.name}\"");
             Destroy(this);
         }
+
         void Awake()
         {
             Instance();
         }
 
+        private void Start()
+        {
+            parent = new GameObject("Audios").transform;
+        }
+
         //Crea sonidos de una sola vez. Puedes elegir que sonidos y en que posicion
-        public void CreateSound(int sound, Vector3 position = default(Vector3))
+        public AudioSource Audio(int sound, Vector3 position = default(Vector3), bool loop = false)
         {
-            if (Error5_2(sound)) return;
-            AudioSource.PlayClipAtPoint(sounds[sound], position);
+            return Creator(sound, position, loop);
         }
-        public void CreateSound(int[] sound, Vector3 position = default(Vector3))
+        public AudioSource[] Audio(int[] sound, Vector3 position = default(Vector3), bool loop = false)
         {
+            List<AudioSource> miSounds = new List<AudioSource>();
             sound.ForEach((i) => {
-                if (!Error5_2(i)) { 
-                    AudioSource.PlayClipAtPoint(sounds[i], position);
-                }
+                miSounds.Add(Creator(i, position, loop));
             });
+            return miSounds.ToArray();
         }
 
-        //Crea sonidos en bucle. Puedes elegir que sonidos y en que posicion
-        public GameObject CreateInfinitySound(int sound, Vector3 position = default(Vector3)) 
-        {
-            if (!Error5_2(sound)) return null;
-
-            GameObject soundInstance = new GameObject("LoopingSoundInstance");
-            AudioSource audioSource = soundInstance.AddComponent<AudioSource>();
-            audioSource.clip = sounds[sound];
-            audioSource.loop = true;
-
-            soundInstance.transform.position = position;
-            audioSource.Play();
-
-            return soundInstance;
-        }
-
-        public GameObject[] CreateInfinitySound(int[] sound, Vector3 position = default(Vector3)) 
-        {
-            List<GameObject> soundsInstance = new List<GameObject>();
-            sound.ForEach((i) => {
-                if (!Error5_2(i))
-                {
-                    GameObject soundInstance = new GameObject("LoopingSoundInstance");
-                    soundsInstance.Add(soundInstance);
-                    AudioSource audioSource = soundInstance.AddComponent<AudioSource>();
-                    audioSource.clip = sounds[i];
-                    audioSource.loop = true;
-
-                    soundInstance.transform.position = position;
-                    audioSource.Play();
-                }
-            });
-            return soundsInstance.ToArray();
-        }
-
-        public void CreateVibration(int duration = 0)
-        {
-           
-        }
-
-
-        bool Error5_2(int value) {
-            if (sounds.Inside(value)){
-                Debug.Log($"baboOn: 5.2.-No existe el sonido {value} dentro de Sounds");
-                return true;
+        //Crea todos los sonidos
+        AudioSource Creator(int s, Vector3 p, bool loop = false) {
+            if (!sounds.Inside(s))
+            {
+                //Ese sonido no esta dentro del array
+                Debug.LogError($"baboOn: 5.2.-No existe el sonido {s} dentro de Sounds");
+                return null;
             }
-            return false;
+
+            GameObject soundInstance = new GameObject($"Sound-{s}");
+            soundInstance.transform.SetParent(parent);
+
+            AudioSource audioSource = soundInstance.AddComponent<AudioSource>();
+            audioSource.clip = sounds[s];
+
+            if (loop) audioSource.loop = true;
+            soundInstance.transform.position = p;
+
+            audioSource.Play();
+            return audioSource;
+        }
+
+        public void Vibration(float duration = 0)
+        {
+            if (vibration) {
+                //Ya esta vibrando
+                Debug.LogWarning($"baboOn: 5.4.-El dispositivo esta ejecutando otra vibracion");
+            }
+
+            if (SystemInfo.supportsVibration)
+            {
+                vibration = true;
+
+                StartCoroutine(StartVibration());
+                StartCoroutine(StopVibration(duration));
+
+                return;
+            }
+
+            //El dispositivo no puede vibrar
+            Debug.LogWarning($"baboOn: 5.3.-El dispositivo no es compatible con la vibracion");
+        }
+        IEnumerator StartVibration()
+        {
+            while (vibration)
+            {
+                Handheld.Vibrate();
+                yield return null;
+            }
+        }
+        IEnumerator StopVibration(float duration)
+        {
+            duration.Log();
+            yield return new WaitForSeconds(duration);
+            vibration = false;
         }
 
     }

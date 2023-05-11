@@ -142,8 +142,10 @@ namespace BaboOn
 
     public static class Bug {
         //Muestra un log del string y lo devuelve
-        public static string Log(this string text) {
-            Debug.Log(text);
+        public static T Log<T>(this T text) {
+            string convertedText = Convert.ToString(text);
+            Debug.Log(convertedText);
+
             return text;
         }
         //Muestra un log con informacion basica

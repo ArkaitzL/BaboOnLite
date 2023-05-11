@@ -6,8 +6,8 @@ using BaboOn;
 
 public class prueba : MonoBehaviour
 {
-    [SerializeField] Dictionary<string, int> Diccionario = new Dictionary<string, int>();
-    [SerializeField] string[,] Array2d = new string[0,0];
+    //[SerializeField] Dictionary<string, int> Diccionario = new Dictionary<string, int>();
+    //[SerializeField] string[,] Array2d = new string[0,0];
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class prueba : MonoBehaviour
         //Objetos();
         //String();
         //Data();
-        //LanguageVoid();
+        //Audio();
     }
 
     private void Update()
@@ -26,8 +26,8 @@ public class prueba : MonoBehaviour
     }
 
     void ArrayList1D() {
-        int[] numerosA = { 1, 2, 3, 4, 5, 0, -1, -2, 6 };
-        List<int> numerosL = new List<int>() { 1, 2, 3, 4, 5, 0, -1, -2 };
+        //int[] numerosA = { 1, 2, 3, 4, 5, 0, -1, -2, 6 };
+        //List<int> numerosL = new List<int>() { 1, 2, 3, 4, 5, 0, -1, -2 };
 
         // String---------------------------------
         //Debug.Log(numerosA.inString());
@@ -87,14 +87,14 @@ public class prueba : MonoBehaviour
     }
 
     void ArrayList2D() {
-        int[,] numerosA = {
-            { 1, 2, 3, 4, 5 },
-            { 5, 4, 3, 2, 1 }
-        };
-        List<List<int>> numerosL = new List<List<int>>(){
-            new List<int>{ 1, 2, 3, 4, 5 },
-            new List<int>{ 5, 4, 3, 2, 1 }
-        };
+        //int[,] numerosA = {
+        //    { 1, 2, 3, 4, 5 },
+        //    { 5, 4, 3, 2, 1 }
+        //};
+        //List<List<int>> numerosL = new List<List<int>>(){
+        //    new List<int>{ 1, 2, 3, 4, 5 },
+        //    new List<int>{ 5, 4, 3, 2, 1 }
+        //};
 
         // Flat----------------------------------       //()->Normal
         // String--------------------------------       //()->Normal
@@ -107,12 +107,12 @@ public class prueba : MonoBehaviour
     }
 
     void Objetos() {
-        var objeto1 = (
-            nombre: "Manolo",
-            numeros: new[] { 
-                0, 1, 2
-            }
-        );
+        //var objeto1 = (
+        //    nombre: "Manolo",
+        //    numeros: new[] { 
+        //        0, 1, 2
+        //    }
+        //);
 
         //Debug.Log($"{objeto.nombre} su primer numero es: {objeto.numeros[0]}");
 
@@ -124,6 +124,9 @@ public class prueba : MonoBehaviour
         //string miMens = "Este es mi mensaje".Log();
         //Bug.Log(Color.red);
         //Bug.Log();
+        //int y = 9;
+        //int x = 1 + y.Log();
+        //x.Log();
     }
 
     void Data() {
@@ -142,7 +145,13 @@ public class prueba : MonoBehaviour
         //transform.MoveForward3D();
     }
 
-    void LanguageVoid() {
+    void Audio() {
+        //Bug.Log();
+        //Sound.Create.Audio(0);
+        //Sound.Create.Audio(new int[] { 0, 1 });
+        //Sound.Create.Audio(new int[] { 0, 1 }, new Vector3(0, 10, 0), true);
+        //Sound.Create.Audio(new int[] { 0 }, new Vector3(0, 10, 0), true);
 
+        //Sound.Create.Vibration(3);
     }
 }
