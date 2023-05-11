@@ -161,7 +161,7 @@ namespace BaboOnLite
     public static class Move2D
     {
         //Movimiento basico de unity2D en 3 persona
-        public static bool Move2D_3P(this Transform transform, float velocity = 10, float rotation = 10)
+        public static bool Move2DISO(this Transform transform, float velocity = 10, float rotation = 10)
         {
 
             float x = Input.GetAxisRaw("Horizontal");
@@ -213,7 +213,7 @@ namespace BaboOnLite
     public static class Move3D
     {
         //Movimiento basico de unity2D en 3 persona
-        public static bool Move3D_3P(this Transform transform, float velocity = 10, float rotation = 10)
+        public static bool Move3DISO(this Transform transform, float velocity = 10, float rotation = 10)
         {
 
             float x = Input.GetAxisRaw("Horizontal");

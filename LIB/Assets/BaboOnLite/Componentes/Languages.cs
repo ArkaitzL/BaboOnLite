@@ -95,7 +95,7 @@ namespace BaboOnLite
             Text();
         }
         //Escribe en los textos
-        public void Text()
+        void Text()
         {
             texts.ForEach((e, i) =>
             {
