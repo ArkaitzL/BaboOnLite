@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace BaboOn
+namespace BaboOnLite
 {
     [CreateAssetMenu(fileName = "Language", menuName = "BaboOn/New language", order = 1)]
     public class Language : ScriptableObject

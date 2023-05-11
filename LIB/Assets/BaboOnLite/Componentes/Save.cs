@@ -2,11 +2,11 @@ using UnityEngine;
 using System.IO;
 using UnityEditor;
 
-namespace BaboOn
+namespace BaboOnLite
 {
 
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOn/Save")]
+    [AddComponentMenu("BaboOnLite/Save")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
 

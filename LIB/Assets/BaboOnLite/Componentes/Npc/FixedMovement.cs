@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-namespace BaboOn
+namespace BaboOnLite
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOn/ Npc/FixedMovement (NPC)")]
+    [AddComponentMenu("BaboOnLite/ Npc/FixedMovement (NPC)")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
     public class FixedMovement : MonoBehaviour

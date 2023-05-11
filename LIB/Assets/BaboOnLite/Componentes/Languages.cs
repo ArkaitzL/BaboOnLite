@@ -1,10 +1,10 @@
 using UnityEngine;
 using TMPro;
 
-namespace BaboOn
+namespace BaboOnLite
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOn/Languages")]
+    [AddComponentMenu("BaboOnLite/Languages")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
 

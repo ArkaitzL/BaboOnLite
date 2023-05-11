@@ -1,10 +1,10 @@
 using UnityEngine;
 
 
-namespace BaboOn
+namespace BaboOnLite
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOn/Limit (2D)")]
+    [AddComponentMenu("BaboOnLite/Limit (2D)")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
 

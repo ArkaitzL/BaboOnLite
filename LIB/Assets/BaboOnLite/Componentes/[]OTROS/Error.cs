@@ -1,5 +1,5 @@
 
-namespace BaboOn
+namespace BaboOnLite
 {
     public static class Error
     {

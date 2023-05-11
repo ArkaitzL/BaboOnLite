@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BaboOn 
+namespace BaboOnLite
 {
     [DefaultExecutionOrder(-1)]
-    [AddComponentMenu("BaboOn/Sound")]
+    [AddComponentMenu("BaboOnLite/Sound")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
 

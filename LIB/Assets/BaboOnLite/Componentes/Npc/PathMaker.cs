@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace BaboOn
+namespace BaboOnLite
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOn/ Npc/PathMaker (NPC)")]
+    [AddComponentMenu("BaboOnLite/ Npc/PathMaker (NPC)")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
     public class PathMaker : MonoBehaviour
