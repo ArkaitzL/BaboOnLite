@@ -11,34 +11,34 @@ namespace BaboOnLite
     public class UI : MonoBehaviour
     {
         //Cambia la escena
-        public void ChangeScene(int scene) {
+        public static void ChangeScene(int scene) {
             SceneManager.LoadScene(scene);
         }
-        public void ChangeScene(string scene){
+        public static void ChangeScene(string scene){
             SceneManager.LoadScene(scene);
         }
 
         //Reinicia la escena
-        public void RestartScene() {
+        public static void RestartScene() {
             SceneManager.LoadScene(
                 SceneManager.GetActiveScene().name
             );
         }
 
         //Activa y desactiva un GameObject dependiendo su anterior estado
-        public void ToggleOn(GameObject component) {
+        public static void ToggleOn(GameObject component) {
             component.SetActive(
                 !component.activeSelf    
             );
         }
 
         //Activa o desactiva un GameObject dependiendo lo que quieras
-        public void Activate(GameObject component) {
+        public static void Activate(GameObject component) {
             component.SetActive(
                 true
             );
         }
-        public void Desactivate(GameObject component)
+        public static void Desactivate(GameObject component)
         {
             component.SetActive(
                 false
@@ -46,7 +46,7 @@ namespace BaboOnLite
         }
 
         //Pausa o quita el pausa del juego
-        public void Pause(bool pause = true) {
+        public static void Pause(bool pause = true) {
             Time.timeScale = (pause) ? 0 : 1;
         }
     }

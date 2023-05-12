@@ -18,6 +18,7 @@ public class prueba : MonoBehaviour
         //String();
         //Data();
         //Audio();
+
     }
 
     private void Update()
@@ -26,13 +27,12 @@ public class prueba : MonoBehaviour
     }
 
     void ArrayList1D() {
-        //int[] numerosA = { 1, 2, 3, 4, 5, 0, -1, -2, 6 };
+        int[] numerosA = { 1, 2, 3, 4, 5, 0, -1, -2, 6 };
         //List<int> numerosL = new List<int>() { 1, 2, 3, 4, 5, 0, -1, -2 };
 
         // String---------------------------------
         //Debug.Log(numerosA.inString());
         //Debug.Log(numerosL.inString());
-
         // ForEach--------------------------------
 
         //numerosA.ForEach(num => Debug.Log($"{num}"));
@@ -82,8 +82,6 @@ public class prueba : MonoBehaviour
         //"[false, true, 1, 23]".inArray<bool>().ForEach(e => {
         //    Debug.Log(e);
         //});
-
-
     }
 
     void ArrayList2D() {
