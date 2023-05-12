@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 namespace BaboOnLite
 {
     [DefaultExecutionOrder(0)]
-    [AddComponentMenu("BaboOnLite/UI")]
+    [AddComponentMenu("BaboOnLite/MenuUI")]
     [DisallowMultipleComponent]
     //[HelpURL("")]
 
-    public class UI : MonoBehaviour
+    public class MenuUI : MonoBehaviour
     {
         //Cambia la escena
         public static void ChangeScene(int scene) {

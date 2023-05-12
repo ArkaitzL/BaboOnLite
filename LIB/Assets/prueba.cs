@@ -18,7 +18,6 @@ public class prueba : MonoBehaviour
         //String();
         //Data();
         //Audio();
-
     }
 
     private void Update()
@@ -125,6 +124,7 @@ public class prueba : MonoBehaviour
         //int y = 9;
         //int x = 1 + y.Log();
         //x.Log();
+
     }
 
     void Data() {
@@ -132,13 +132,13 @@ public class prueba : MonoBehaviour
     }
 
     void Unity() {
-        //Debug.Log(transform.Move2D(10, 10));
-        //transform.Move2D();
+        //Debug.Log(transform.MoveISO2D(10, 10));
+        //transform.MoveISO2D();
         //transform.MoveForward2D(10, 10);
         //transform.MoveForward2D();
 
-        //Debug.Log(transform.Move3D_3P(10, 10));
-        //transform.Move3D_3P();
+        //Debug.Log(transform.MoveISO3D(10, 10));
+        //transform.MoveISO3D();
         //transform.MoveForward3D(10, 10);
         //transform.MoveForward3D();
     }

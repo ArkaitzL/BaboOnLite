@@ -18,20 +18,21 @@ namespace BaboOnLite
         string color = "white";
 
         static SaveScript data = new SaveScript();
-        static Save instance;
+        static Save settings;
 
         public static SaveScript Data { get => data; }
+        public static Save Settings { get => settings; }
 
         //Convierte el script en Singleton
         void Instance()
         {
-            if (instance != null)
+            if (settings != null)
             {
                 Destroy(gameObject);
                 return;
             }
 
-            instance = this;
+            settings = this;
             DontDestroyOnLoad(gameObject);
         }
         //Recoge los datos y lo guarda en data

@@ -35,7 +35,7 @@ namespace BaboOnLite
             Instance();
         }
 
-        private void Start()
+        void Start()
         {
             parent = new GameObject("Audios").transform;
         }

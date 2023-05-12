@@ -16,7 +16,8 @@ namespace BaboOnLite
         [Space]
         [SerializeField] int miLang = 0;
 
-        static Languages instance;
+        static Languages settings;
+        public static Languages Settings { get => settings; }
 
         private void OnValidate()
         {
@@ -36,9 +37,9 @@ namespace BaboOnLite
         }
         void Instance()
         {
-            if (instance == null)
+            if (settings == null)
             {
-                instance = this;
+                settings = this;
                 return;
             }
 
