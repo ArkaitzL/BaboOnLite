@@ -54,3 +54,4 @@ sysinfo.txt
 /LIB/.vsconfig
 /LIB/Assembly-CSharp.csproj
 /LIB/LIB.sln
+/LIB/Assembly-CSharp-Editor.csproj
