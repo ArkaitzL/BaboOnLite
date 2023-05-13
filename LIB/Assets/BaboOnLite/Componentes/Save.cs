@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.IO;
-using UnityEditor;
 
 namespace BaboOnLite
 {
@@ -108,40 +107,6 @@ namespace BaboOnLite
                 {
                     Debug.LogFormat($"<color={color}> Nombre del archivo cambiado a \"{newName}\". </color>");
                 }
-            }
-        }
-        //Abre una nueva ventana con la GUI necesaria
-        public void OpenWindow()
-        {
-           
-            ChangeNameWindow.ShowWindow();
-        }
-    }
-
-    //Ventana de Save
-    public class ChangeNameWindow : EditorWindow
-    {
-        string newName;
-
-        internal static void ShowWindow()
-        {
-            GetWindow<ChangeNameWindow>("Change Name");
-        }
-
-        private void OnGUI()
-        {
-            Save save = FindObjectOfType<Save>();
-
-            EditorGUILayout.LabelField($"Cambiar \"{save.nameJson}\" como nombre del archivo:");
-            newName = EditorGUILayout.TextField("Enter new name:", newName);
-
-            if (GUILayout.Button("Change"))
-            {
-                if (save != null)
-                {
-                    save.ChangeName(newName);
-                }
-                Close();
             }
         }
     }

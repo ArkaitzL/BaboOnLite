@@ -59,6 +59,8 @@
     <Compile Include="Assets\BaboOnLite\Editor\Prefabs\Console\Console.cs" />
     <Compile Include="Assets\BaboOnLite\Editor\Prefabs\Controller.cs" />
     <Compile Include="Assets\BaboOnLite\Editor\InspectorEditor.cs" />
+    <Compile Include="Assets\BaboOnLite\Editor\NPC\PathMaker.cs" />
+    <Compile Include="Assets\BaboOnLite\Editor\WindowEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

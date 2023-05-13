@@ -22,7 +22,7 @@ namespace BaboOnLite
 
             if (GUILayout.Button("Change Name"))
             {
-                ins.OpenWindow();
+                WindowEditor.ShowWindow();
             }
         }
     }
