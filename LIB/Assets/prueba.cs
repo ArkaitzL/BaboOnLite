@@ -152,4 +152,10 @@ public class prueba : MonoBehaviour
 
         //Sound.Create.Vibration(3);
     }
+
+    public void Logs() {
+        Debug.Log("Mensaje de prueba para el funcionamieto de la consola no se que mas poner :)");
+        Debug.LogError("Mensaje de prueba para el funcionamieto de la consola no se que mas poner :)");
+        Debug.LogWarning("Mensaje de prueba para el funcionamieto de la consola no se que mas poner :)");
+    }
 }
