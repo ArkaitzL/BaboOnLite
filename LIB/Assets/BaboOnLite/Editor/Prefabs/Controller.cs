@@ -6,7 +6,7 @@ using BaboOnLite;
 public class Controller
 {
     //Ruta de los prefabs
-    static string path = "Assets/BaboOnLite/Prefabs/";
+    static string path = "Assets/BaboOnLite/Editor/Prefabs/";
 
     //OBJETO 1
     [MenuItem("GameObject/BaboOnLite/Console")]
