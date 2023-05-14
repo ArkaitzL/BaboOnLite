@@ -73,7 +73,8 @@ namespace BaboOnLite
 
             if (GUILayout.Button("Save path"))
             {
-                pathMaker.Save();
+                (Path path, string name) = pathMaker.Save(); 
+                AssetDatabase.CreateAsset(path, $"Assets/{name}.asset");
             }
         }
     }

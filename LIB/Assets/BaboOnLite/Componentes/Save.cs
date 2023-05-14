@@ -64,12 +64,14 @@ namespace BaboOnLite
 
             File.WriteAllText(path, Json);
 
-            if (confirmLog)
-            {
-                Debug.LogFormat($"<color={color}> El archivo se a creado en:\n {path} </color>");
-            }
-
             if (File.Exists(path)) {
+                if (confirmLog)
+                {
+                    Debug.LogFormat($"<color={color}> El archivo se a creado en:\n {path} </color>");
+                }
+            }
+            else
+            {
                 //No se ha podido crear un archivo, por lo que no se han guardado los datos
                 Debug.LogError("baboOn: 2.2.-El archivo no se ha creado correctamente");
             }

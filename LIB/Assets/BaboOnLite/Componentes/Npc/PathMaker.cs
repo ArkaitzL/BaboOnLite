@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace BaboOnLite
@@ -18,12 +17,12 @@ namespace BaboOnLite
             position.Add(transform.position);
         }
 
-        public void Save()
+        public (Path, string) Save()
         {
             Path path = ScriptableObject.CreateInstance<Path>();
             path.positions = position.ToArray();
 
-            AssetDatabase.CreateAsset(path, $"Assets/{pathName}.asset");
+            return (path, pathName);
         }
     }
 
