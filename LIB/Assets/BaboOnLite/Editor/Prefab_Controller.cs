@@ -3,20 +3,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using BaboOnLite;
 
-public class Controller
+public class Prefab_Controller
 {
     //Ruta de los prefabs
-    static string path = "Assets/BaboOnLite/Editor/Prefabs/";
+    static string path = "Assets/BaboOnLite/Prefabs/";
 
     //OBJETO 1
-    [MenuItem("GameObject/BaboOnLite/Console")]
-    private static void Instantiate(MenuCommand menuCommand)
+    [MenuItem("GameObject/BaboOnLite/Console (PC)")]
+    private static void InstantiatePC(MenuCommand menuCommand)
     {
-        //Nombre del prefab
-        string name = "Console/Console.prefab";
+        Instantiate("Console/Console (PC).prefab");
+    }
+    //OBJETO 2
+    [MenuItem("GameObject/BaboOnLite/Console (Android)")]
+    private static void InstantiateAndroid(MenuCommand menuCommand)
+    {
+        Instantiate("Console/Console (Android).prefab");
+    }
+
+    private static void Instantiate(string name) {
 
         //Instancia el prefab
-        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path+name);
+        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path + name);
         GameObject instance = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
         instance.name = prefab.name;
 

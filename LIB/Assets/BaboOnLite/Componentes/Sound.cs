@@ -100,7 +100,9 @@ namespace BaboOnLite
         {
             while (vibration)
             {
+                    #if UNITY_ANDROID
                 Handheld.Vibrate();
+                    #endif
                 yield return null;
             }
         }
