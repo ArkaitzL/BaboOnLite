@@ -10,6 +10,20 @@ namespace BaboOnLite
 
     public class MenuUI : MonoBehaviour
     {
+        [SerializeField] bool activeButton = true;
+
+        //Teclas
+        private void Update()
+        {
+            if (activeButton)
+            {
+                if (Input.GetButtonDown("Cancel"))
+                {
+                    Pause((Time.timeScale == 1) ? true : false);
+                }
+            }
+        }
+
         //Cambia la escena
         public static void ChangeScene(int scene) {
             SceneManager.LoadScene(scene);
@@ -47,6 +61,7 @@ namespace BaboOnLite
 
         //Pausa o quita el pausa del juego
         public static void Pause(bool pause = true) {
+            pause.Log();
             Time.timeScale = (pause) ? 0 : 1;
         }
     }

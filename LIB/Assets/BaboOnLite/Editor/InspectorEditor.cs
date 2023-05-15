@@ -78,4 +78,22 @@ namespace BaboOnLite
             }
         }
     }
+    //Editor de PlayerMove
+    [CustomEditor(typeof(PlayerMove))]
+    public class PlayerMoveEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            PlayerMove playerMove = (PlayerMove)target;
+
+            GUILayout.Space(10);
+
+            if (GUILayout.Button("Search Floor"))
+            {
+                playerMove.SearchFloor();
+            }
+        }
+    }
 }
