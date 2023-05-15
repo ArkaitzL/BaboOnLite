@@ -158,7 +158,7 @@ namespace BaboOnLite
         }
     }
 
-    public static class Move2D
+    public static class Moves2D
     {
         //Movimiento basico de unity2D en 3 persona
         public static bool MoveISO2D(this Transform transform, float velocity = 10, float rotation = 10)
@@ -210,8 +210,31 @@ namespace BaboOnLite
         }
     }
 
-    public static class Move3D
+    public static class Moves3D
     {
+        //public static void Move3D(this Transform transform, Rigidbody rb, float velocity = 10, float rotation = 10, float jump = 4) {
+
+        //    float x = Input.GetAxisRaw("Horizontal");
+        //    float z = Input.GetAxisRaw("Vertical");
+        //    if (new Vector3(x, 0, z) != Vector3.zero)
+        //    {
+        //        //Mover el personaje
+        //        transform.Translate(
+        //            new Vector3(x, 0, z).normalized * Time.deltaTime * velocity,
+        //            Space.World
+        //        );
+        //    }
+        //    //**Rotar con teclado
+        //    //**Saltar con espacio
+        //    if (Input.GetButtonDown("Jump")) {
+        //        rb.AddForce(
+        //           new Vector3(0, jump, 0),
+        //           ForceMode.Impulse
+        //        );
+        //    }
+        //    //**Agacharse
+        //}
+
         //Movimiento basico de unity2D en 3 persona
         public static bool MoveISO3D(this Transform transform, float velocity = 10, float rotation = 10)
         {
@@ -251,7 +274,6 @@ namespace BaboOnLite
                 float angleV = x * rotation * Time.deltaTime;
                 transform.Rotate(0f, -(angleV * 15), 0f);
             }
-
         }
     }
 
