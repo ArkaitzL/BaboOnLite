@@ -15,15 +15,22 @@ namespace BaboOnLite
 
         [SerializeField] float velocity = 7;
 
-        [Space][Header("Jump")]
-
-        [SerializeField] float jump = 4;
-        [SerializeField] float floorDistance = 1;
-
         [Space][Header("Rotation")]
 
         [SerializeField] float mouseSensitivity = 2;
         [SerializeField] float maxUpAngle = 90f, maxDownAngle = -90f;
+
+        [Space]
+        [Header("Jump")]
+
+        [SerializeField] float jump = 4;
+        [SerializeField] float floorDistance = 1;
+        [SerializeField] LayerMask jumpLayer = int.MaxValue;
+
+        [Space]
+        [Header("Other")]
+        [SerializeField] bool freezeRotation;
+
 
         float rotationX = 0f;
         Rigidbody rb;
@@ -31,8 +38,8 @@ namespace BaboOnLite
         void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            if (freezeRotation) rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
-
         void Update()
         {
             //Movimiento x, z--
@@ -67,18 +74,16 @@ namespace BaboOnLite
             }
 
             //Saltar con espacio--
-            if (Input.GetButtonDown("Jump") && Physics.Raycast(transform.position, Vector3.down, floorDistance))
+            if (Input.GetButtonDown("Jump") && Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), floorDistance+.5f, jumpLayer))
             {
                 rb.AddForce(
                    new Vector3(0, jump, 0),
                    ForceMode.Impulse
                 );
             }
-
-            //**Agacharse
         }
 
-        void OnDrawGizmos()
+        void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, transform.position + transform.TransformDirection(Vector3.down) * floorDistance);
@@ -86,7 +91,7 @@ namespace BaboOnLite
 
         public void SearchFloor() {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 100, jumpLayer))
             {
                 floorDistance = hit.distance;
             }
