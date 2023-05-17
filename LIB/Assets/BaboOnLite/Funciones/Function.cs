@@ -135,11 +135,6 @@ namespace BaboOnLite
 
     }
 
-    public static class Array2D 
-    { 
-    
-    }
-
     public static class Bug {
         //Muestra un log del string y lo devuelve
         public static T Log<T>(this T text) {
