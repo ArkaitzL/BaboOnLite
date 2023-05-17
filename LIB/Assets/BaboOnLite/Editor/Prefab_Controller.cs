@@ -34,8 +34,11 @@ public class Prefab_Controller
         {
             GameObject canvasGO = new GameObject("Canvas");
             canvas = canvasGO.AddComponent<Canvas>();
-            canvasGO.AddComponent<CanvasScaler>();
+            canvasGO.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             canvasGO.AddComponent<GraphicRaycaster>();
+
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
         }
         //Lo añade dentro del Canvas
         instance.transform.SetParent(canvas.transform, false);
