@@ -11,7 +11,6 @@ namespace BaboOnLite
 
     public class Ads : MonoBehaviour
     {
-        [HideInInspector]
-        public MonoBehaviour script;
+
     }
 }
