@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Prefab_Controller
@@ -41,6 +42,15 @@ public class Prefab_Controller
         }
         //Lo añade dentro del Canvas
         instance.transform.SetParent(canvas.transform, false);
+
+        //EventSystem
+        EventSystem eventSystem = Object.FindObjectOfType<EventSystem>();
+        if (eventSystem == null)
+        {
+            GameObject eventSystemGO = new GameObject("EventSystem");
+            eventSystem = eventSystemGO.AddComponent<EventSystem>();
+            eventSystemGO.AddComponent<StandaloneInputModule>();
+        }
 
         //Otros
         Undo.RegisterCreatedObjectUndo(instance, "Instantiate Custom Prefab");

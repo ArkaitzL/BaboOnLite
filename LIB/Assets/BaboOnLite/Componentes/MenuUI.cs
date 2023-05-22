@@ -61,7 +61,6 @@ namespace BaboOnLite
 
         //Pausa o quita el pausa del juego
         public static void Pause(bool pause = true) {
-            pause.Log();
             Time.timeScale = (pause) ? 0 : 1;
         }
     }
