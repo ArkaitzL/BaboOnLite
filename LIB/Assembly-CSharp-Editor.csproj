@@ -59,6 +59,7 @@
     <Compile Include="Assets\BaboOnLite\Editor\WindowEditor.cs" />
     <Compile Include="Assets\BaboOnLite\Editor\Prefab_Controller.cs" />
     <Compile Include="Assets\BaboOnLite\Editor\InspectorEditor.cs" />
+    <Compile Include="Assets\BaboOnLite\Editor\Hierarchy.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
