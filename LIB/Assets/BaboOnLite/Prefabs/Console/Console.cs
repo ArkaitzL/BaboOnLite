@@ -82,6 +82,7 @@ public class Console : MonoBehaviour
         countText.text = $"<color=#FFFFFF>Log: 0</color>     <color=#FFA500>Warning: 0</color>     <color=#FF0000>Error: 0</color>";
         countMinText.text = $"<color=#FFFFFF>0</color>\n<color=#FFA500>0</color>\n<color=#FF0000>0</color>";
     }
+
     public void Minimize()
     {
         //Minimiza y maximiza
@@ -89,7 +90,6 @@ public class Console : MonoBehaviour
 
         max1.SetActive(!minimize);
         max2.SetActive(!minimize);
-
         min1.SetActive(minimize);
 
         //Actualiza la consola

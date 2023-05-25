@@ -2,11 +2,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using BaboOnLite;
 
 public class Prefab_Controller
 {
     //Ruta de los prefabs
-    static string path = "Assets/BaboOnLite/Prefabs/";
 
     //OBJETO 1
     [MenuItem("GameObject/BaboOnLite/Console (PC)")]
@@ -22,6 +22,11 @@ public class Prefab_Controller
     }
 
     private static void Instantiate(string name) {
+
+        //Busca la ruta
+        string path = AssetDatabase.GUIDToAssetPath(
+            AssetDatabase.FindAssets("BaboOnLite")[0]
+        ) + "/Prefabs/";
 
         //Instancia el prefab
         GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path + name);

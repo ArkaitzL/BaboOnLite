@@ -16,10 +16,10 @@ namespace BaboOnLite
         [SerializeField] bool confirmLog = false;
         string color = "white";
 
-        static SaveScript data = new SaveScript();
+        [SerializeField] SaveScript data = new SaveScript();
         static Save settings;
 
-        public static SaveScript Data { get => data; }
+        public static SaveScript Data { get => settings.data; }
         public static Save Settings { get => settings; }
 
         //Convierte el script en Singleton

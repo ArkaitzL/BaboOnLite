@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace BaboOnLite
@@ -19,21 +20,24 @@ namespace BaboOnLite
             {
                 if (Input.GetButtonDown("Cancel"))
                 {
-                    Pause((Time.timeScale == 1) ? true : false);
+                    PauseTime((Time.timeScale == 1) ? true : false);
                 }
             }
         }
 
         //Cambia la escena
         public static void ChangeScene(int scene) {
+            Time.timeScale = 1;
             SceneManager.LoadScene(scene);
         }
         public static void ChangeScene(string scene){
+            Time.timeScale = 1;
             SceneManager.LoadScene(scene);
         }
 
         //Reinicia la escena
         public static void RestartScene() {
+            Time.timeScale = 1;
             SceneManager.LoadScene(
                 SceneManager.GetActiveScene().name
             );
@@ -60,7 +64,7 @@ namespace BaboOnLite
         }
 
         //Pausa o quita el pausa del juego
-        public static void Pause(bool pause = true) {
+        public static void PauseTime(bool pause = true) {
             Time.timeScale = (pause) ? 0 : 1;
         }
     }

@@ -18,6 +18,8 @@ public class prueba : MonoBehaviour
         //String();
         //Data();
         //Audio();
+
+        //Save.Data.prueba = 203;
     }
 
     private void Update()
@@ -28,7 +30,6 @@ public class prueba : MonoBehaviour
     void ArrayList1D() {
         int[] numerosA = { 1, 2, 3, 4, 5, 0, -1, -2, 6 };
         //List<int> numerosL = new List<int>() { 1, 2, 3, 4, 5, 0, -1, -2 };
-
         // String---------------------------------
         //Debug.Log(numerosA.inString());
         //Debug.Log(numerosL.inString());

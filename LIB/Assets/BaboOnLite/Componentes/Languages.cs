@@ -14,7 +14,9 @@ namespace BaboOnLite
         [SerializeField] Language[] languages = new Language[0];
         [SerializeField] TextMeshProUGUI[] texts = new TextMeshProUGUI[0];
         [Space]
+        [Header("Selected language")]
         [SerializeField] int miLang = 0;
+        [SerializeField] bool autaSave = true;
 
         static Languages settings;
         public static Languages Settings { get => settings; }
@@ -49,6 +51,16 @@ namespace BaboOnLite
         }
         void Awake()
         {
+            if (autaSave)
+            {
+                if (Object.FindObjectOfType<Save>() == null)
+                {
+                    //Tienes que tener un Save
+                    Debug.LogError($"baboOn: 3.6-Para guardar el idioma es requerido el componente Save");
+                    return;
+                }
+                miLang = Save.Data.language;
+            }
             Instance();
             Validate();
             Text();
@@ -78,6 +90,17 @@ namespace BaboOnLite
                 ? ++miLang
                 : 0;
             Text();
+
+            if (autaSave){
+                if (Object.FindObjectOfType<Save>() == null)
+                {
+                    //Tienes que tener un Save
+                    Debug.LogError($"baboOn: 3.6-Para guardar el idioma es requerido el componente Save");
+                    return;
+                }
+                Save.Data.language = miLang;
+            }
+
         }
         //Cambia el idioma
         public void Change(int i)
@@ -94,6 +117,17 @@ namespace BaboOnLite
 
             miLang = i;
             Text();
+
+            if (autaSave){
+                if (Object.FindObjectOfType<Save>() == null)
+                {
+                    //Tienes que tener un Save
+                    Debug.LogError($"baboOn: 3.6-Para guardar el idioma es requerido el componente Save");
+                    return;
+                }
+                Save.Data.language = miLang;
+            }
+
         }
         //Escribe en los textos
         void Text()

@@ -11,13 +11,7 @@ public static class Hierarchy
     private static void ColorGUI(int instanceID, Rect selectionRect)
     {
         GameObject gameObject = EditorUtility.InstanceIDToObject(instanceID) as GameObject;
-        List<(string, Color)> colors = new List<(string, Color)>() { 
-            ("!", Color.red),
-            ("?", Color.blue),
-            ("*", Color.yellow),
-            ("-", Color.black),
-            ("$", Color.cyan),
-        };
+        List<(string, Color)> colors = new ColorMark().colors;
 
         if (gameObject != null)
         {
